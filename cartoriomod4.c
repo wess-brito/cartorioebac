@@ -3,9 +3,9 @@
 #include <locale.h> // Biblioteca de alocações de texto por região.
 #include <string.h> // Biblioteca responsável por cuidar das strings.
 
-int registro() //Função responsável por cadastrar os usuários no sistema
+int registro() // Função responsável por cadastrar os usuários no sistema
 {
-    //Início criação de variáveis/string
+    // Início criação de variáveis/string
     char arquivo[40];
     char cpf[40];
     char nome[40];
@@ -55,7 +55,7 @@ int registro() //Função responsável por cadastrar os usuários no sistema
     fprintf(file, cargo);
     fclose(file);
 
-    system("read"); //pausa a tela
+    system("read"); // pausa a tela
 }
 
 int consulta()
@@ -95,44 +95,67 @@ int main()
 {
     int opcao = 0; // Definindo variáveis
     int laco = 1;
+    char senhadigitada[10] = "a";
+    int comparacao;
 
-    for (laco = 1; laco = 1;)
+    printf("### Cartório do Wess ### \n\n");
+    printf("Login de administrador! \n\n Digite a sua senha: ");
+    scanf("%s", senhadigitada);
+
+    comparacao = strcmp(senhadigitada, "admin");
+
+    If(senhadigitada[10] == "admin")
 
     {
 
-        system("clear");
+        for (laco = 1; laco = 1;)
 
-        setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
-
-        printf("### Cartório do Wess ### \n\n"); // Início do menu
-        printf("escolha a opção desejada: \n\n");
-        printf("\t1 - Registrar nomes:\n");
-        printf("\t2 - Consultar nomes:\n");
-        printf("\t3 - Deletar nomes:\n\n");
-        printf("Opção: "); // Fim do menu
-
-        scanf("%d", &opcao); // armazenando a escolha do usuário
-
-        system("clear"); // Limpa a tela
-
-        switch (opcao)
         {
-        case 1:
-            registro();
-            break;
 
-        case 2:
-            consulta();
-            break;
+            system("clear");
 
-        case 3:
-            deletar();
-            break;
+            setlocale(LC_ALL, "Portuguese"); // Definindo a linguagem
 
-        default:
-            printf("Essa opção não está disponível! \n");
-            system("read");
-            break;
-        } // Fim da seleção
+            printf("### Cartório do Wess ### \n\n"); // Início do menu
+            printf("escolha a opção desejada: \n\n");
+            printf("\t1 - Registrar nomes:\n");
+            printf("\t2 - Consultar nomes:\n");
+            printf("\t3 - Deletar nomes:\n\n");
+            printf("\t4 - Sair do Sistema\n\n");
+
+            printf("Opção: "); // Fim do menu
+
+            scanf("%d", &opcao); // armazenando a escolha do usuário
+
+            system("clear"); // Limpa a tela
+
+            switch (opcao)
+            {
+            case 1:
+                registro();
+                break;
+
+            case 2:
+                consulta();
+                break;
+
+            case 3:
+                deletar();
+                break;
+
+            case 4:
+                printf("Obrigado por utilizar nosso sistema!\n");
+                return 0;
+                break;
+
+            default:
+                printf("Essa opção não está disponível! \n");
+                system("read");
+                break;
+            } // Fim da seleção
+        }
     }
+
+    Else 
+        printf("Senha Incorreta!");
 }
